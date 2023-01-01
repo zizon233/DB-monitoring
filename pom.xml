@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>PaymentMonitoring</artifactId>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven-compiler-plugin.version}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <annotationProcessorPaths>
+            <path>
+              <artifactId>picocli-codegen</artifactId>
+              <groupId>info.picocli</groupId>
+              <version>${picocli.version}</version>
+            </path>
+          </annotationProcessorPaths>
+          <compilerArgs>
+            <arg>-Aproject=${project.groupId}/${project.artifactId}</arg>
+          </compilerArgs>
+        </configuration>
+        <!-- annotationProcessorPaths requires maven-compiler-plugin version 3.5 or higher -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>${maven-compiler-plugin.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+
+    <!-- flink 기본 라이브러리 -->
+    <dependency>
+      <artifactId>flink-streaming-java</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <scope>provided</scope>
+      <version>${flink.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>flink-core</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <scope>provided</scope>
+      <version>${flink.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>flink-table-api-java-bridge</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <scope>provided</scope>
+      <version>${flink.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>flink-clients</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${flink.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>flink-connector-kafka</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${flink.version}</version>
+    </dependency>
+
+
+    <dependency>
+      <artifactId>flink-connector-files</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${flink.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>flink-table-planner-loader</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${flink.version}</version>
+    </dependency>
+
+    <!-- flink state 라이브러리 -->
+    <dependency>
+      <artifactId>statefun-sdk-embedded</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${statefun.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>statefun-flink-io</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${statefun.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>statefun-kafka-io</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${statefun.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>statefun-sdk-protos</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${statefun.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>statefun-flink-core</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${statefun.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>statefun-flink-common</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${statefun.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>statefun-sdk-java</artifactId>
+      <groupId>org.apache.flink</groupId>
+      <version>${statefun.version}</version>
+    </dependency>
+
+    <!-- picocli 라이브러리 (argument 관리) -->
+    <dependency>
+      <artifactId>picocli</artifactId>
+      <groupId>info.picocli</groupId>
+      <version>${picocli.version}</version>
+    </dependency>
+
+    <!-- hibernate 라이브러리 (ORM) -->
+    <dependency>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <groupId>org.hibernate</groupId>
+      <version>${hibernate.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>hibernate-core</artifactId>
+      <groupId>org.hibernate</groupId>
+      <version>${hibernate.version}</version>
+    </dependency>
+
+    <!-- mysql connector 라이브러리 -->
+    <dependency>
+      <artifactId>mysql-connector-java</artifactId>
+      <groupId>mysql</groupId>
+      <version>${mysql-connector.version}</version>
+    </dependency>
+
+    <!-- mysql cdc connector 라이브러리 -->
+    <dependency>
+      <artifactId>flink-connector-mysql-cdc</artifactId>
+      <groupId>com.ververica</groupId>
+      <scope>provided</scope>
+      <version>${mysql-connector-cdc.version}</version>
+    </dependency>
+
+    <!-- log4j 라이브러리 -->
+    <dependency>
+      <artifactId>log4j-api</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <artifactId>log4j-core</artifactId>
+      <groupId>org.apache.logging.log4j</groupId>
+      <version>${log4j.version}</version>
+    </dependency>
+
+    <!-- jackson 라이브러리 -->
+    <dependency>
+      <artifactId>jackson-databind</artifactId>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+  </dependencies>
+  <groupId>org.example</groupId>
+
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <properties>
+    <flink.version>1.16.0</flink.version>
+    <hibernate.version>5.6.14.Final</hibernate.version>
+    <jackson.version>2.14.1</jackson.version>
+    <java.version>1.8</java.version>
+    <log4j.version>2.19.0</log4j.version>
+    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <mysql-connector-cdc.version>2.3.0</mysql-connector-cdc.version>
+    <mysql-connector.version>8.0.31</mysql-connector.version>
+    <picocli.version>4.7.0</picocli.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <statefun.version>3.2.0</statefun.version>
+  </properties>
+
+  <version>1.0-SNAPSHOT</version>
+
+</project>

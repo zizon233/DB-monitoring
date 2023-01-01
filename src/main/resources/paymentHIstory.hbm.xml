@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="org.example.PaymentHistory" table="payment_history">
+
+    <id column="history_id" name="historyId" type="long">
+      <generator class="native"/>
+    </id>
+    <property column="buisness_no" name="buisnessNo" type="string"/>
+    <property column="price" name="price" type="long"/>
+    <property column="card_no" name="cardNo" type="string"/>
+    <property column="payment_dt" name="paymentDt" type="LocalDateTime"/>
+    <property column="cancel_dt" name="cancelDt" type="LocalDateTime"/>
+
+  </class>
+</hibernate-mapping>
