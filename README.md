@@ -1,2 +1,12 @@
 # DB-monitoring
-Monitoring database data change in real-time
+DB 데이터 실시간 모니터링
+
+1. 목적
+
+DB 의 데이터 변화를 실시간으로 집계 및 모니터링 하기 위함
+
+2. 구현 내용
+* 가상 데이터 생성
+* 가상 데이터 및 모니터링 DB 구성
+* CDC를 이용하여 데이터 변화 Streaming 수집
+* 데이터 변환 및 모니터링을 위한 집계
